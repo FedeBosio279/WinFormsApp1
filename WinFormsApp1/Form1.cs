@@ -123,6 +123,8 @@ namespace WinFormsApp3
             num8.Visible = false;
             num9.Visible = false;
             num0.Visible = false;
+            empBut1.Visible = false;
+            empBut2.Visible = false;
             equals.Visible = false;
             minus.Visible = false;
             plus.Visible = false;
@@ -158,6 +160,8 @@ namespace WinFormsApp3
             num8.Visible = false;
             num9.Visible = false;
             num0.Visible = false;
+            empBut1.Visible = false;
+            empBut2.Visible = false;   
             equals.Visible = false;
             minus.Visible = false;
             plus.Visible = false;
@@ -328,6 +332,8 @@ namespace WinFormsApp3
             num8.Visible = true;
             num9.Visible = true;
             num0.Visible = true;
+            empBut1.Visible = true;
+            empBut2.Visible = true;
             equals.Visible = true;
             minus.Visible = true;
             plus.Visible = true;
@@ -354,6 +360,16 @@ namespace WinFormsApp3
         {
             axWindowsMediaPlayer1.settings.mute = !axWindowsMediaPlayer1.settings.mute;
             UpdateMuteButton();
+        }
+
+        private void empBut2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empBut1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

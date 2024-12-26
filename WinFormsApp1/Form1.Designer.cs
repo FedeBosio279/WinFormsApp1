@@ -38,7 +38,6 @@
             mediaPlayer = new Button();
             returnBut = new Button();
             panel1 = new Panel();
-            mute = new Button();
             sqr = new Button();
             multip = new Button();
             equals = new Button();
@@ -59,7 +58,10 @@
             num3 = new Button();
             num2 = new Button();
             num1 = new Button();
+            mute = new Button();
             calc = new Button();
+            empBut1 = new Button();
+            empBut2 = new Button();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -144,7 +146,7 @@
             // 
             // returnBut
             // 
-            returnBut.Location = new Point(819, 498);
+            returnBut.Location = new Point(678, 470);
             returnBut.Name = "returnBut";
             returnBut.Size = new Size(94, 29);
             returnBut.TabIndex = 8;
@@ -156,6 +158,8 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(empBut2);
+            panel1.Controls.Add(empBut1);
             panel1.Controls.Add(sqr);
             panel1.Controls.Add(multip);
             panel1.Controls.Add(equals);
@@ -174,39 +178,28 @@
             panel1.Controls.Add(num3);
             panel1.Controls.Add(num2);
             panel1.Controls.Add(num1);
-            panel1.Location = new Point(406, 35);
+            panel1.Location = new Point(374, 7);
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(252, 492);
+            panel1.Size = new Size(310, 492);
             panel1.TabIndex = 9;
             panel1.Visible = false;
             panel1.Paint += panel1_Paint;
             // 
-            // mute
-            // 
-            mute.Location = new Point(883, 142);
-            mute.Name = "mute";
-            mute.Size = new Size(82, 30);
-            mute.TabIndex = 5;
-            mute.Text = "Silenzia";
-            mute.UseVisualStyleBackColor = true;
-            mute.Visible = false;
-            mute.Click += mute_click;
-            // 
             // sqr
             // 
-            sqr.Location = new Point(131, 141);
+            sqr.Location = new Point(152, 160);
             sqr.Name = "sqr";
             sqr.Size = new Size(60, 60);
             sqr.TabIndex = 19;
-            sqr.Text = "sqr";
+            sqr.Text = "√ ";
             sqr.UseVisualStyleBackColor = true;
             sqr.Visible = false;
             sqr.Click += sqr_Click;
             // 
             // multip
             // 
-            multip.Location = new Point(190, 141);
+            multip.Location = new Point(218, 160);
             multip.Name = "multip";
             multip.Size = new Size(60, 60);
             multip.TabIndex = 18;
@@ -217,7 +210,7 @@
             // 
             // equals
             // 
-            equals.Location = new Point(191, 405);
+            equals.Location = new Point(218, 424);
             equals.Name = "equals";
             equals.Size = new Size(60, 60);
             equals.TabIndex = 16;
@@ -228,7 +221,7 @@
             // 
             // num0
             // 
-            num0.Location = new Point(65, 405);
+            num0.Location = new Point(86, 424);
             num0.Name = "num0";
             num0.Size = new Size(60, 60);
             num0.TabIndex = 15;
@@ -242,10 +235,10 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(16, 22);
+            panel2.Location = new Point(20, 27);
             panel2.Margin = new Padding(10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(212, 113);
+            panel2.Size = new Size(258, 113);
             panel2.TabIndex = 14;
             panel2.Visible = false;
             panel2.Paint += panel2_Paint;
@@ -255,12 +248,12 @@
             textBox1.BackColor = SystemColors.Control;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(6, 91);
+            textBox1.Location = new Point(-1, 91);
             textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.RightToLeft = RightToLeft.Yes;
-            textBox1.Size = new Size(193, 20);
+            textBox1.Size = new Size(257, 20);
             textBox1.TabIndex = 1;
             textBox1.Visible = false;
             textBox1.TextChanged += textBox1_TextChanged;
@@ -276,9 +269,9 @@
             // 
             // C
             // 
-            C.Location = new Point(-1, 141);
+            C.Location = new Point(20, 160);
             C.Name = "C";
-            C.Size = new Size(120, 60);
+            C.Size = new Size(126, 60);
             C.TabIndex = 13;
             C.Text = "C";
             C.UseVisualStyleBackColor = true;
@@ -287,7 +280,7 @@
             // 
             // divide
             // 
-            divide.Location = new Point(190, 207);
+            divide.Location = new Point(218, 226);
             divide.Name = "divide";
             divide.Size = new Size(60, 60);
             divide.TabIndex = 11;
@@ -298,7 +291,7 @@
             // 
             // minus
             // 
-            minus.Location = new Point(191, 273);
+            minus.Location = new Point(218, 292);
             minus.Name = "minus";
             minus.Size = new Size(60, 60);
             minus.TabIndex = 10;
@@ -309,7 +302,7 @@
             // 
             // num9
             // 
-            num9.Location = new Point(131, 207);
+            num9.Location = new Point(152, 226);
             num9.Name = "num9";
             num9.Size = new Size(60, 60);
             num9.TabIndex = 9;
@@ -320,7 +313,7 @@
             // 
             // num8
             // 
-            num8.Location = new Point(65, 207);
+            num8.Location = new Point(86, 226);
             num8.Name = "num8";
             num8.Size = new Size(60, 60);
             num8.TabIndex = 8;
@@ -331,7 +324,7 @@
             // 
             // num7
             // 
-            num7.Location = new Point(-1, 207);
+            num7.Location = new Point(20, 226);
             num7.Name = "num7";
             num7.Size = new Size(60, 60);
             num7.TabIndex = 7;
@@ -342,7 +335,7 @@
             // 
             // num6
             // 
-            num6.Location = new Point(131, 273);
+            num6.Location = new Point(152, 292);
             num6.Name = "num6";
             num6.Size = new Size(60, 60);
             num6.TabIndex = 6;
@@ -353,7 +346,7 @@
             // 
             // num5
             // 
-            num5.Location = new Point(65, 273);
+            num5.Location = new Point(86, 292);
             num5.Name = "num5";
             num5.Size = new Size(60, 60);
             num5.TabIndex = 5;
@@ -364,7 +357,7 @@
             // 
             // num4
             // 
-            num4.Location = new Point(-1, 273);
+            num4.Location = new Point(20, 292);
             num4.Name = "num4";
             num4.Size = new Size(60, 60);
             num4.TabIndex = 4;
@@ -375,7 +368,7 @@
             // 
             // plus
             // 
-            plus.Location = new Point(191, 339);
+            plus.Location = new Point(218, 358);
             plus.Name = "plus";
             plus.Size = new Size(60, 60);
             plus.TabIndex = 3;
@@ -386,7 +379,7 @@
             // 
             // num3
             // 
-            num3.Location = new Point(131, 339);
+            num3.Location = new Point(152, 358);
             num3.Name = "num3";
             num3.Size = new Size(60, 60);
             num3.TabIndex = 2;
@@ -397,7 +390,7 @@
             // 
             // num2
             // 
-            num2.Location = new Point(65, 339);
+            num2.Location = new Point(86, 358);
             num2.Name = "num2";
             num2.Size = new Size(60, 60);
             num2.TabIndex = 1;
@@ -408,7 +401,7 @@
             // 
             // num1
             // 
-            num1.Location = new Point(-1, 339);
+            num1.Location = new Point(20, 358);
             num1.Name = "num1";
             num1.Size = new Size(60, 60);
             num1.TabIndex = 0;
@@ -416,6 +409,17 @@
             num1.UseVisualStyleBackColor = true;
             num1.Visible = false;
             num1.Click += num1_Click;
+            // 
+            // mute
+            // 
+            mute.Location = new Point(527, 429);
+            mute.Name = "mute";
+            mute.Size = new Size(82, 30);
+            mute.TabIndex = 5;
+            mute.Text = "Silenzia";
+            mute.UseVisualStyleBackColor = true;
+            mute.Visible = false;
+            mute.Click += mute_click;
             // 
             // calc
             // 
@@ -427,11 +431,32 @@
             calc.UseVisualStyleBackColor = true;
             calc.Click += calc_Click;
             // 
+            // empBut1
+            // 
+            empBut1.Location = new Point(152, 422);
+            empBut1.Name = "empBut1";
+            empBut1.Size = new Size(60, 60);
+            empBut1.TabIndex = 20;
+            empBut1.Text = "";
+            empBut1.UseVisualStyleBackColor = true;
+            empBut1.Click += empBut1_Click;
+            // 
+            // empBut2
+            // 
+            empBut2.Location = new Point(20, 424);
+            empBut2.Name = "empBut2";
+            empBut2.Size = new Size(60, 60);
+            empBut2.TabIndex = 21;
+            empBut2.Text = "";
+            empBut2.UseVisualStyleBackColor = true;
+            empBut2.Click += empBut2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1048, 694);
+            Controls.Add(panel1);
             Controls.Add(mute);
             Controls.Add(calc);
             Controls.Add(returnBut);
@@ -442,7 +467,6 @@
             Controls.Add(btnPlayVideo);
             Controls.Add(btnLoadVideo);
             Controls.Add(axWindowsMediaPlayer1);
-            Controls.Add(panel1);
             Name = "Form1";
             SizeGripStyle = SizeGripStyle.Show;
             Text = "Lettore Video";
@@ -485,6 +509,7 @@
         private Label label1;
         private TextBox textBox1;
         private Button calc;
-        private Button button1;
+        private Button empBut2;
+        private Button empBut1;
     }
 }
