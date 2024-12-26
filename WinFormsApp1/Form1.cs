@@ -19,6 +19,7 @@ namespace WinFormsApp3
         public Form1()
         {
             InitializeComponent(); // Inizializza i controlli grafici del form
+            axWindowsMediaPlayer1.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1; // Aggiornamento ogni 1 ms
             timer.Tick += Timer_Tick;
@@ -37,6 +38,7 @@ namespace WinFormsApp3
                     vidProgress.Value = (int)axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
                 }
             }
+            UpdateMuteButton();
         }
 
         private void trackBarProgress_Scroll(object sender, EventArgs e)
@@ -76,18 +78,22 @@ namespace WinFormsApp3
         {
 
         }
-
-        private void mute_CheckedChanged(object sender, EventArgs e)
+        private void UpdateMuteButton()
         {
-            axWindowsMediaPlayer1.settings.mute = mute.Checked;
-            if (mute.Checked)
+            // Controlla lo stato del muto e aggiorna il testo del pulsante
+            if (axWindowsMediaPlayer1.settings.mute)
             {
-                mute.Text = "Riattiva audio";
+                mute.Text = "Riattiva Audio";
             }
             else
             {
                 mute.Text = "Silenzia";
             }
+        }
+        private void AxWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            // Aggiorna il pulsante ogni volta che lo stato cambia
+            UpdateMuteButton();
         }
 
         private void vidProgress_Click(object sender, EventArgs e)
@@ -338,6 +344,16 @@ namespace WinFormsApp3
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void mute_click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.settings.mute = !axWindowsMediaPlayer1.settings.mute;
+            UpdateMuteButton();
         }
     }
 }

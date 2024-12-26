@@ -34,11 +34,11 @@
             btnPlayVideo = new Button();
             stopReg = new Button();
             selFileName = new Label();
-            mute = new CheckBox();
             vidProgress = new ProgressBar();
             mediaPlayer = new Button();
             returnBut = new Button();
             panel1 = new Panel();
+            mute = new Button();
             sqr = new Button();
             multip = new Button();
             equals = new Button();
@@ -74,6 +74,7 @@
             axWindowsMediaPlayer1.Size = new Size(760, 400);
             axWindowsMediaPlayer1.TabIndex = 0;
             axWindowsMediaPlayer1.Visible = false;
+            axWindowsMediaPlayer1.Enter += axWindowsMediaPlayer1_Enter;
             // 
             // btnLoadVideo
             // 
@@ -119,18 +120,6 @@
             selFileName.Text = "Nesun File Selezionato";
             selFileName.Visible = false;
             selFileName.Click += selFileName_Click;
-            // 
-            // mute
-            // 
-            mute.AutoSize = true;
-            mute.Location = new Point(539, 433);
-            mute.Name = "mute";
-            mute.Size = new Size(82, 24);
-            mute.TabIndex = 5;
-            mute.Text = "Silenzia";
-            mute.UseVisualStyleBackColor = true;
-            mute.Visible = false;
-            mute.CheckedChanged += mute_CheckedChanged;
             // 
             // vidProgress
             // 
@@ -192,6 +181,17 @@
             panel1.TabIndex = 9;
             panel1.Visible = false;
             panel1.Paint += panel1_Paint;
+            // 
+            // mute
+            // 
+            mute.Location = new Point(883, 142);
+            mute.Name = "mute";
+            mute.Size = new Size(82, 30);
+            mute.TabIndex = 5;
+            mute.Text = "Silenzia";
+            mute.UseVisualStyleBackColor = true;
+            mute.Visible = false;
+            mute.Click += mute_click;
             // 
             // sqr
             // 
@@ -432,17 +432,17 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1048, 694);
+            Controls.Add(mute);
             Controls.Add(calc);
-            Controls.Add(panel1);
             Controls.Add(returnBut);
             Controls.Add(mediaPlayer);
             Controls.Add(vidProgress);
-            Controls.Add(mute);
             Controls.Add(selFileName);
             Controls.Add(stopReg);
             Controls.Add(btnPlayVideo);
             Controls.Add(btnLoadVideo);
             Controls.Add(axWindowsMediaPlayer1);
+            Controls.Add(panel1);
             Name = "Form1";
             SizeGripStyle = SizeGripStyle.Show;
             Text = "Lettore Video";
@@ -459,7 +459,7 @@
 
         private Button stopReg;
         private Label selFileName;
-        private CheckBox mute;
+        private Button mute;
         private ProgressBar vidProgress;
         private Button mediaPlayer;
         private Button returnBut;
@@ -485,5 +485,6 @@
         private Label label1;
         private TextBox textBox1;
         private Button calc;
+        private Button button1;
     }
 }
