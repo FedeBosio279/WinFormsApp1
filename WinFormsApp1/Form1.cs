@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using AxWMPLib;
 using Microsoft.VisualBasic;
 using System.Timers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsApp3
 {
@@ -10,21 +11,9 @@ namespace WinFormsApp3
     {
         string FileName1 = "";
         private System.Windows.Forms.Timer timer;
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
-            {
-                // Ottieni la durata totale del video
-                double duration = axWindowsMediaPlayer1.currentMedia.duration;
-                if (duration > 0)
-                {
-                    // Sincronizza la posizione del TrackBar con la posizione attuale del video
-                    progressBar1.Maximum = (int)duration;
-                    progressBar1.Value = (int)axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
-                }
-            }
-        }
+        double firstNumber = 0;
+        double secondNumber = 0;
+        string operation = "";
 
         public Form1()
         {
@@ -34,11 +23,25 @@ namespace WinFormsApp3
             timer.Tick += Timer_Tick;
             timer.Start();
         }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                // Ottieni la durata totale del video
+                double duration = axWindowsMediaPlayer1.currentMedia.duration;
+                if (duration > 0)
+                {
+                    // Sincronizza la posizione del TrackBar con la posizione attuale del video
+                    vidProgress.Maximum = (int)duration;
+                    vidProgress.Value = (int)axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
+                }
+            }
+        }
 
         private void trackBarProgress_Scroll(object sender, EventArgs e)
         {
             // Imposta la posizione del video in base alla posizione del TrackBar
-            axWindowsMediaPlayer1.Ctlcontrols.currentPosition = progressBar1.Value;
+            axWindowsMediaPlayer1.Ctlcontrols.currentPosition = vidProgress.Value;
         }
 
 
@@ -52,7 +55,7 @@ namespace WinFormsApp3
                 {
                     FileName1 = openFileDialog.FileName;
                     axWindowsMediaPlayer1.URL = openFileDialog.FileName;
-                    label1.Text = FileName1;
+                    selFileName.Text = FileName1;
                 }
             }
         }
@@ -63,9 +66,228 @@ namespace WinFormsApp3
             axWindowsMediaPlayer1.Ctlcontrols.play();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void stopReg_Click(object sender, EventArgs e)
         {
             axWindowsMediaPlayer1.Ctlcontrols.stop();
+        }
+
+        private void selFileName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mute_CheckedChanged(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.settings.mute = mute.Checked;
+            if (mute.Checked)
+            {
+                mute.Text = "Riattiva audio";
+            }
+            else
+            {
+                mute.Text = "Silenzia";
+            }
+        }
+
+        private void vidProgress_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mediaPlayer_Click_1(object sender, EventArgs e)
+        {
+            stopReg.Visible = true;
+            mediaPlayer.Visible = false;
+            vidProgress.Visible = true;
+            mute.Visible = true;
+            selFileName.Visible = true;
+            btnPlayVideo.Visible = true;
+            btnLoadVideo.Visible = true;
+            axWindowsMediaPlayer1.Visible = true;
+            returnBut.Visible = true;
+            calc.Visible = false;
+            num1.Visible = false;
+            num2.Visible = false;
+            num3.Visible = false;
+            num4.Visible = false;
+            num5.Visible = false;
+            num6.Visible = false;
+            num7.Visible = false;
+            num8.Visible = false;
+            num9.Visible = false;
+            num0.Visible = false;
+            equals.Visible = false;
+            minus.Visible = false;
+            plus.Visible = false;
+            multip.Visible = false;
+            divide.Visible = false;
+            C.Visible = false;
+            sqr.Visible = false;
+            textBox1.Visible = false;
+            panel1.Visible = false;
+            panel2.Visible = false;
+            calc.Visible = false;
+        }
+
+        private void returnBut_Click(object sender, EventArgs e)
+        {
+            stopReg.Visible = false;
+            mediaPlayer.Visible = true;
+            vidProgress.Visible = false;
+            mute.Visible = false;
+            selFileName.Visible = false;
+            btnPlayVideo.Visible = false;
+            btnLoadVideo.Visible = false;
+            axWindowsMediaPlayer1.Visible = false;
+            returnBut.Visible = false;
+            calc.Visible = false;
+            num1.Visible = false;
+            num2.Visible = false;
+            num3.Visible = false;
+            num4.Visible = false;
+            num5.Visible = false;
+            num6.Visible = false;
+            num7.Visible = false;
+            num8.Visible = false;
+            num9.Visible = false;
+            num0.Visible = false;
+            equals.Visible = false;
+            minus.Visible = false;
+            plus.Visible = false;
+            multip.Visible = false;
+            divide.Visible = false;
+            C.Visible = false;
+            sqr.Visible = false;
+            textBox1.Visible = false;
+            panel1.Visible = false;
+            panel2.Visible = false;
+            calc.Visible = true;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void num1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void C_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            firstNumber = 0;
+            secondNumber = 0;
+            operation = "";
+        }
+
+        private void sqr_Click(object sender, EventArgs e)
+        {
+            double number = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = Math.Sqrt(number).ToString();
+        }
+
+        private void multip_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "*";
+            textBox1.Clear();
+        }
+
+        private void num7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "7";
+        }
+
+        private void num4_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "4";
+        }
+
+        private void num3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "3";
+        }
+
+        private void num2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "2";
+        }
+
+        private void num0_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "0";
+        }
+
+        private void equals_Click(object sender, EventArgs e)
+        {
+            secondNumber = Convert.ToDouble(textBox1.Text);
+
+            switch (operation)
+            {
+                case "+":
+                    textBox1.Text = (firstNumber + secondNumber).ToString();
+                    break;
+                case "-":
+                    textBox1.Text = (firstNumber - secondNumber).ToString();
+                    break;
+                case "*":
+                    textBox1.Text = (firstNumber * secondNumber).ToString();
+                    break;
+                case "/":
+                    if (secondNumber != 0)
+                        textBox1.Text = (firstNumber / secondNumber).ToString();
+                    else
+                        textBox1.Text = "Errore: Divisione per zero";
+                    break;
+            }
+        }
+
+        private void plus_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "+";
+            textBox1.Clear();
+        }
+
+        private void minus_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "-";
+            textBox1.Clear();
+        }
+
+        private void num6_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "6";
+        }
+
+        private void num5_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "5";
+        }
+
+        private void divide_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "/";
+            textBox1.Clear();
+        }
+
+        private void num9_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "9";
+        }
+
+        private void num8_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "8";
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -73,26 +295,48 @@ namespace WinFormsApp3
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            axWindowsMediaPlayer1.settings.mute = checkBox1.Checked;
-            if (checkBox1.Checked)
-            {
-                checkBox1.Text = "Riattiva audio";
-            }
-            else
-            {
-                checkBox1.Text = "Silenzia";
-            }
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void calc_Click(object sender, EventArgs e)
         {
+            stopReg.Visible = false;
+            mediaPlayer.Visible = false;
+            vidProgress.Visible = false;
+            mute.Visible = false;
+            selFileName.Visible = false;
+            btnPlayVideo.Visible = false;
+            btnLoadVideo.Visible = false;
+            axWindowsMediaPlayer1.Visible = false;
+            returnBut.Visible = true;
+            num1.Visible = true;
+            num2.Visible = true;
+            num3.Visible = true;
+            num4.Visible = true;
+            num5.Visible = true;
+            num6.Visible = true;
+            num7.Visible = true;
+            num8.Visible = true;
+            num9.Visible = true;
+            num0.Visible = true;
+            equals.Visible = true;
+            minus.Visible = true;
+            plus.Visible = true;
+            multip.Visible = true;
+            divide.Visible = true;
+            C.Visible = true;
+            sqr.Visible = true;
+            textBox1.Visible = true;
+            panel1.Visible = true;
+            panel2.Visible = true;
+            calc.Visible = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
