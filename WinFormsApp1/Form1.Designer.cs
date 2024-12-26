@@ -469,7 +469,7 @@
             Controls.Add(axWindowsMediaPlayer1);
             Name = "Form1";
             SizeGripStyle = SizeGripStyle.Show;
-            Text = "Lettore Video";
+            Text = "Test Software";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
             panel1.ResumeLayout(false);
