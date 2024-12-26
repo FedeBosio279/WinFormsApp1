@@ -38,6 +38,8 @@
             mediaPlayer = new Button();
             returnBut = new Button();
             panel1 = new Panel();
+            empBut2 = new Button();
+            empBut1 = new Button();
             sqr = new Button();
             multip = new Button();
             equals = new Button();
@@ -60,8 +62,6 @@
             num1 = new Button();
             mute = new Button();
             calc = new Button();
-            empBut1 = new Button();
-            empBut2 = new Button();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -185,6 +185,26 @@
             panel1.TabIndex = 9;
             panel1.Visible = false;
             panel1.Paint += panel1_Paint;
+            // 
+            // empBut2
+            // 
+            empBut2.Cursor = Cursors.No;
+            empBut2.Location = new Point(20, 424);
+            empBut2.Name = "empBut2";
+            empBut2.Size = new Size(60, 60);
+            empBut2.TabIndex = 21;
+            empBut2.UseVisualStyleBackColor = true;
+            empBut2.Click += empBut2_Click;
+            // 
+            // empBut1
+            // 
+            empBut1.Cursor = Cursors.No;
+            empBut1.Location = new Point(152, 422);
+            empBut1.Name = "empBut1";
+            empBut1.Size = new Size(60, 60);
+            empBut1.TabIndex = 20;
+            empBut1.UseVisualStyleBackColor = true;
+            empBut1.Click += empBut1_Click;
             // 
             // sqr
             // 
@@ -430,26 +450,6 @@
             calc.Text = "Calcolatrice";
             calc.UseVisualStyleBackColor = true;
             calc.Click += calc_Click;
-            // 
-            // empBut1
-            // 
-            empBut1.Location = new Point(152, 422);
-            empBut1.Name = "empBut1";
-            empBut1.Size = new Size(60, 60);
-            empBut1.TabIndex = 20;
-            empBut1.Text = "";
-            empBut1.UseVisualStyleBackColor = true;
-            empBut1.Click += empBut1_Click;
-            // 
-            // empBut2
-            // 
-            empBut2.Location = new Point(20, 424);
-            empBut2.Name = "empBut2";
-            empBut2.Size = new Size(60, 60);
-            empBut2.TabIndex = 21;
-            empBut2.Text = "";
-            empBut2.UseVisualStyleBackColor = true;
-            empBut2.Click += empBut2_Click;
             // 
             // Form1
             // 
