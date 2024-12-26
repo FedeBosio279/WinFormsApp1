@@ -172,7 +172,7 @@ namespace WinFormsApp3
 
         private void num1_Click(object sender, EventArgs e)
         {
-            textBox1.Text += "7";
+            textBox1.Text += "1";
         }
 
         private void C_Click(object sender, EventArgs e)
