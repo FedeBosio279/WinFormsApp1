@@ -467,7 +467,7 @@
             Controls.Add(btnPlayVideo);
             Controls.Add(btnLoadVideo);
             Controls.Add(axWindowsMediaPlayer1);
-            Name = "Form1";
+            Name = "Test Software";
             SizeGripStyle = SizeGripStyle.Show;
             Text = "Test Software";
             Load += Form1_Load;
