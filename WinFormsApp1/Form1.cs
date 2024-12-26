@@ -14,6 +14,7 @@ namespace WinFormsApp3
         double firstNumber = 0;
         double secondNumber = 0;
         string operation = "";
+        double result = 0;
 
         public Form1()
         {
@@ -171,7 +172,7 @@ namespace WinFormsApp3
 
         private void num1_Click(object sender, EventArgs e)
         {
-
+            textBox1.Text += "7";
         }
 
         private void C_Click(object sender, EventArgs e)
