@@ -12,7 +12,7 @@ namespace WinFormsApp3
         private System.Windows.Forms.Timer timer;
 
         private void Timer_Tick(object sender, EventArgs e)
-        {dddd
+        {
             if (axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 // Ottieni la durata totale del video
